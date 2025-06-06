@@ -7,9 +7,6 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -47,4 +44,4 @@ Route::post('/post/store', [PostController::class, 'store'])->name('posts.store'
 
 
 //Nosotros
-Route::get('/aboutus', [AboutUsController::class, 'index'])->name('aboutus');
+//Route::get('/aboutus', [AboutUsController::class, 'index'])->name('aboutus');
