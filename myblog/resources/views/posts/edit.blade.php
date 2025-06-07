@@ -12,7 +12,7 @@
         </div>
 
         <div class="mb-4">
-            <label for="poster" class="block font-medium">Poster:</label>
+            <label for="poster" class="block font-medium">Imagen:</label>
             <input type="file" id="poster" name="poster" class="border rounded w-full p-2" accept="image/*">
         </div>
 

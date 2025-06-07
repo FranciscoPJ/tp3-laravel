@@ -60,15 +60,18 @@ class PostController extends Controller
         $request->validate([
             'title' => 'required|string|max:255',
             'description' => 'required|string',
-            'poster' => 'required|image|mimes:jpg,jpeg,png|max:2048', // validación de imagen
+            'poster' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
         ]);
-
-        $imagePath = $request->file('poster')->store('posters', 'public');
 
         $post = Post::findOrFail($id);
         $post->title = $request->title;
         $post->content = $request->description;
-        $post->poster = $imagePath;
+
+        if ($request->hasFile('poster')) {
+            $imagePath = $request->file('poster')->store('posters', 'public');
+            $post->poster = $imagePath;
+        }
+
         $post->save();
 
         return redirect()->route('posts.show', $post->id)->with('success', 'Post actualizado correctamente.');

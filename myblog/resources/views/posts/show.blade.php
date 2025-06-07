@@ -1,4 +1,4 @@
-<x-app-layout>
+<x-guest-layout>
     <div class="max-w-xl mx-auto mt-10 p-6 bg-white shadow-md rounded">
         <h1 class="text-2xl font-bold mb-4 text-center">{{ $post->title }}</h1>
 
@@ -7,8 +7,8 @@
 
             @if ($post->poster)
                 <div class="flex justify-center mb-4">
-                    <img src="{{ asset('storage/' . $post->poster) }}" alt="Imagen del post"
-                        class="w-64 h-auto rounded shadow-md">
+                    <img src="{{ $post->poster }}" alt="Imagen del post" class="w-64 h-auto rounded shadow-md">
+
                 </div>
             @endif
         </div>
@@ -26,4 +26,4 @@
             </a>
         </div>
     </div>
-</x-app-layout>
+    </x-guets-layout>
