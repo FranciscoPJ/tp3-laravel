@@ -1,4 +1,4 @@
-<x-guest-layout>
+<x-app-layout>
     <div class="max-w-xl mx-auto mt-10 p-6 bg-white shadow-md rounded">
         <h1 class="text-2xl font-bold mb-4 text-center">{{ $post->title }}</h1>
 
@@ -18,10 +18,12 @@
                 class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition">
                 Editar
             </a>
-            <a href="{{ route('category.show', $post->category) }}"
+
+
+            <a href="{{ route('category.show', $post->id_category) }}"
                 class="bg-gray-300 text-gray-800 px-4 py-2 rounded hover:bg-gray-400 transition">
                 Volver al listado
             </a>
         </div>
     </div>
-</x-guest-layout>
+</x-app-layout>
