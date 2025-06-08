@@ -10,7 +10,7 @@
                     <img src="{{ $post->poster }}" alt="home" class="object-cover w-full h-full rounded-sm ">
 
                     <div class="absolute bottom-0 left-0 bg-black bg-opacity-70 text-white w-full p-2 text-center">
-                        <a href="{{ url('/post/show/' . $post->id) }}">
+                        <a href="{{ url('/post/show/' . $post->id) }}" class="w-full">
                             {{ $post->title }}
                         </a>
                     </div>
@@ -26,9 +26,8 @@
 
                     <img class="w-full h-full object-cover" src="{{ $post->poster }}" alt="home">
 
-                    <div
-                        class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-70 text-white px-2 py-1 text-sm text-center">
-                        <a href="{{ url('/post/show/' . $post->id) }}">
+                    <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-70 text-white px-2 py-1 text-sm text-center">
+                        <a href="{{ url('/post/show/' . $post->id) }}" class="w-full">
                             {{ $post->title }}
                         </a>
                     </div>
