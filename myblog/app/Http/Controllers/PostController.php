@@ -6,7 +6,6 @@ use App\Models\Category;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-
 class PostController extends Controller
 {
 
@@ -17,41 +16,52 @@ class PostController extends Controller
         return view('posts.show', compact('post', 'isOwner'));
     }   
 
-    public function create($categoryId)
+    public function create()
     {
-        $category = Category::findOrFail($categoryId);
-        return view('posts.create', compact('category'));
+        $categories = Category::all();
+        return view('posts.create', compact('categories'));
     }
 
 
 
     public function store(Request $request)
     {
-
+        // 'poster' => 'required|image|mimes:jpg,jpeg,png|max:2048', // validación de imagen  
         $request->validate([
             'title' => 'required|string|max:255',
-            'description' => 'required|string',
-            'poster' => 'required|image|mimes:jpg,jpeg,png|max:2048', // validación de imagen
+            'poster' => 'required|string',
+            'content' => 'required|string',            
+            'id_category' => 'required|exists:categories,id',
         ]);
 
         // Guardar imagen
-        $imagePath = $request->file('poster')->store('posters', 'public');
+        //$imagePath = $request->file('poster')->store('posters', 'public');
 
         // Crear el post
         $post = new Post();
         $post->title = $request->title;
-        $post->content = $request->description;
-        $post->poster = $imagePath;
-        $post->category_id = $request->category_id;
+        $post->poster = $request->poster;
+        $post->habilitated = $request->has('habilitated') ? true : false;
+        $post->content = $request->content;        
+        //$post->poster = $imagePath;
+
+        // Claves foráneas
+        $post->id_category = $request->id_category; // Id de categoria  
+        $post->id_user = auth()->id(); // Usuario autenticado
         $post->save();
 
-        return redirect()->route('category.show', ['id' => $post->category_id])->with('success', 'Post creado con imagen.');
+        return redirect()->route('posts.show', ['id' => $post->id])->with('success', 'Post creado con imagen.');
     }
-
 
     public function edit($id)
     {
         $post = Post::findOrFail($id); // Si no lo encuentra, lanza un 404
+        
+        //  Si el usuario no es el dueño, abortar con error 403 (Prohibido)
+        if (auth()->id() !== $post->id_user) {
+            abort(403, 'No tenés permiso para editar este post.');
+        }
+
         return view('posts.edit', compact('post'));
     }
 

@@ -1,4 +1,20 @@
 <x-guest-layout>
+    @if (session('success'))
+        <div id="success-message" class="bg-green-100 text-green-700 p-3 rounded mb-4 transition-opacity duration-500">
+            {{ session('success') }}
+        </div>
+
+        <script>
+            setTimeout(() => {
+                const msg = document.getElementById('success-message');
+                if (msg) {
+                    msg.classList.add('opacity-0');
+                    setTimeout(() => msg.remove(), 500); // Lo quita del DOM luego de la transición
+                }
+            }, 3000); // 3000ms = 3 segundos
+        </script>
+    @endif
+
     <div class="w-full p-2 bg-white shadow-md rounded">
         <h1 class="text-5xl font-bold mb-4 text-start">{{ $post->title }}</h1>
 
@@ -49,7 +65,7 @@
 
             <form method="POST" action="{{ route('comments.store', $post->id) }}" class="mt-6">
                 @csrf
-                
+
                 @auth
                     <textarea name="content" class="w-full border rounded p-2 mb-2" rows="3" placeholder="Escribí tu comentario..."></textarea>
 

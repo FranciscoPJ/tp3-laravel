@@ -3,15 +3,8 @@
     <div class="max-w-7xl mx-auto px-2 sm:px-4 lg:px6">
 
         <div class="flex justify-between  items-center h-16">
-            <!-- Logo -->
-            {{-- <div class="shrink-0">
-                <a href="{{ route('home.index') }}">
-                    <x-application-logo class="block h-9 w-auto fill-current text-gray-800" />
-                </a>
-            </div> --}}
-
-            <a href="{{ route('home.index') }}" class="flex items-center space-x-2">
-                <!-- Ícono de lápiz (opcional) -->
+            <!-- Logo -->            
+            <a href="{{ route('home.index') }}" class="flex items-center space-x-2">               
                 <div class="w-6 h-6">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                         stroke="currentColor" class="size-6">
@@ -37,7 +30,7 @@
                     </x-nav-link>
 
                     @auth
-                        <x-nav-link :href="route('category.create')" :active="request()->routeIs('post.create')">
+                        <x-nav-link :href="route('posts.create')" :active="request()->routeIs('posts.create')">
                             {{ __('Añadir Blog') }}
                         </x-nav-link>
                     @endauth
