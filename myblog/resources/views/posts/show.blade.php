@@ -16,7 +16,7 @@
     @endif
 
     <div class="w-full p-2 bg-white shadow-md rounded">
-        <h1 class="text-5xl font-bold mb-4 text-start">{{ $post->title }}</h1>
+        <h1 class="text-3xl font-semibold mb-4 mt-2 text-center">{{ $post->title }}</h1>
 
         <div class="mb-4 text-gray-700">
             @if ($post->poster)
