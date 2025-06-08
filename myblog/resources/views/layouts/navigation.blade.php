@@ -1,6 +1,7 @@
 <nav x-data="{ open: false }" class="bg-gray-100 border-b border-gray-100 text-grey">
     <!-- Primary Navigation Menu -->
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto px-2 sm:px-4 lg:px6">
+
         <div class="flex justify-between  items-center h-16">
             <!-- Logo -->
             <div class="shrink-0">
@@ -10,27 +11,23 @@
             </div>
 
             <!-- Navigation Links -->
-            <div class="hidden space-x-4 sm:ml-10 sm:flex ">
-                <x-nav-link :href="route('home.index')" :active="request()->routeIs('home')">
-                    {{ __('Inicio') }}
-                </x-nav-link>
-
-                <x-nav-link :href="route('category.index')" :active="request()->routeIs('post.index')">
-                    {{ __('Categorias') }}
-                </x-nav-link>
-
-                @auth
-                    <x-nav-link :href="route('category.create')" :active="request()->routeIs('post.create')">
-                        {{ __('Añadir Blog') }}
+            <div class="flex-grow flex justify-center space-x-4">
+                <div class="sm:ml-2 md:ml-10 xl:ml-12 2xl:ml-14">
+                    <x-nav-link :href="route('home.index')" :active="request()->routeIs('home')">
+                        {{ __('Inicio') }}
                     </x-nav-link>
-                @endauth
 
+                    <x-nav-link :href="route('category.index')" :active="request()->routeIs('post.index')">
+                        {{ __('Categorias') }}
+                    </x-nav-link>
+
+                    @auth
+                        <x-nav-link :href="route('category.create')" :active="request()->routeIs('post.create')">
+                            {{ __('Añadir Blog') }}
+                        </x-nav-link>
+                    @endauth
+                </div>
             </div>
-
-
-            {{-- <div>
-                Estado Auth: {{ Auth::check() ? 'Autenticado' : 'No autenticado' }}
-            </div> --}}
 
             <!-- Settings Dropdown -->
             @auth
@@ -53,7 +50,7 @@
 
                         <x-slot name="content">
                             <x-dropdown-link :href="route('profile.edit')">
-                                {{ __('Profile') }}
+                                {{ __('Perfil') }}
                             </x-dropdown-link>
 
                             <!-- Authentication -->
@@ -61,7 +58,7 @@
                                 @csrf
                                 <x-dropdown-link :href="route('logout')"
                                     onclick="event.preventDefault(); this.closest('form').submit();">
-                                    {{ __('Log Out') }}
+                                    {{ __('Cerrar Sesión') }}
                                 </x-dropdown-link>
                             </form>
                         </x-slot>
@@ -101,9 +98,6 @@
     <!-- Responsive Navigation Menu -->
     <div :class="{ 'block': open, 'hidden': !open }" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
-            {{-- <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                {{ __('Dashboard') }}
-            </x-responsive-nav-link> --}}
 
             <x-responsive-nav-link :href="route('category.index')" :active="request()->routeIs('post.index')">
                 {{ __('Categorias') }}
@@ -124,7 +118,7 @@
 
                 <div class="mt-3 space-y-1">
                     <x-responsive-nav-link :href="route('profile.edit')">
-                        {{ __('Profile') }}
+                        {{ __('Perfil') }}
                     </x-responsive-nav-link>
 
                     <!-- Authentication -->
@@ -132,7 +126,7 @@
                         @csrf
                         <x-responsive-nav-link :href="route('logout')"
                             onclick="event.preventDefault(); this.closest('form').submit();">
-                            {{ __('Log Out') }}
+                            {{ __('Cerrar Sesión') }}
                         </x-responsive-nav-link>
                     </form>
                 </div>

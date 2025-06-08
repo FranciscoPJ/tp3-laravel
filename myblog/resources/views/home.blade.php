@@ -9,7 +9,7 @@
                 <div
                     class="slide absolute w-full h-full flex justify-center items-center transition-opacity duration-1000 {{ $index === 0 ? 'opacity-100' : 'opacity-0' }} rounded-sm">
                     <img src="{{ $post->poster }}" alt="home" class="object-cover w-full h-full rounded-sm ">
-                    
+
                     <div class="absolute bottom-0 left-0 bg-black bg-opacity-70 text-white w-full p-2 text-center">
                         {{ $post->title }}
                     </div>
@@ -18,19 +18,20 @@
         </div>
 
         {{-- Lateral derecha --}}
-     <div class="grid gap-1 sm:col-span-1 md:col-span-1 lg:col-span-1 w-full h-fit">
-    @foreach ($posts->slice(0, $posts->count() - 3) as $post)
-        <div
-            class="relative w-min-300 h-full overflow-hidden rounded-sm transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110">
-            
-            <img class="w-full h-full object-cover" src="{{ $post->poster }}" alt="home">
+        <div class="grid gap-1 sm:col-span-1 md:col-span-1 lg:col-span-1 w-full h-fit">
+            @foreach ($posts->slice(0, $posts->count() - 3) as $post)
+                <div
+                    class="relative w-min-300 h-full overflow-hidden rounded-sm transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110">
 
-            <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-70 text-white px-2 py-1 text-sm text-center">
-                {{ $post->title }}
-            </div>
+                    <img class="w-full h-full object-cover" src="{{ $post->poster }}" alt="home">
+
+                    <div
+                        class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-70 text-white px-2 py-1 text-sm text-center">
+                        {{ $post->title }}
+                    </div>
+                </div>
+            @endforeach
         </div>
-    @endforeach
-</div>
 
     </div>
 
@@ -43,7 +44,8 @@
 
         <div class="mt-2 ml-3 text-md">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit, nobis harum eum esse doloribus iure provident
-            architecto? Corporis harum eligendi, magni corrupti aperiam neque perspiciatis, iste facere molestiae obcaecati
+            architecto? Corporis harum eligendi, magni corrupti aperiam neque perspiciatis, iste facere molestiae
+            obcaecati
             vero.
         </div>
 

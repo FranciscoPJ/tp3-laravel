@@ -17,37 +17,30 @@
 </head>
 
 <body class="font-sans antialiased">
-    <div class="min-h-screen bg-gray-100">
-        @include('layouts.navigation')
+    <!-- Page Header -->
+    <header class="bg-gray-100">
+        @include('layouts.navigation')    
+    </header>
 
-        <!-- Page Heading -->
-        @isset($header)
-            <header class="bg-white shadow">
-                <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                    {{ $header }}
-                </div>
-            </header>
-        @endisset
+    <!-- Page Content -->
+    <main>        
+        {{ $slot }}
+    </main>
 
-        <!-- Page Content -->
-        <main>
-            {{ $slot }}
-        </main>
-    </div>
+    <!-- Footer -->
+    <footer class="bg-white border-t border-gray-100 ">
+        <div class="container mx-fit px-4 py-6 flex flex-col sm:flex-row justify-between gap-8 text-gray-700">
 
-    <!-- Footer siempre al fondo -->
-    <footer class="text-grey bg-gray-100 border-b border-gray-100">
-        <div class="max-w-7xl mx-auto px-4 py-6 grid grid-cols-1 md:grid-cols-3 gap-6">
             <!-- Sección de contacto -->
-            <div>
+            <div class="flex-1">
                 <h3 class="text-lg font-semibold mb-2">Acerca de</h3>
                 <p>Este blog está creado para compartir noticias, artículos y opiniones sobre diversos temas.</p>
             </div>
 
             <!-- Enlaces útiles -->
-            <div>
+            <div class="flex-1">
                 <h3 class="text-lg font-semibold mb-2">Enlaces</h3>
-                <ul>
+                <ul class="space-y-1">
                     <li><a href="{{ route('home.index') }}" class="hover:underline">Inicio</a></li>
                     <li><a href="{{ route('category.index') }}" class="hover:underline">Categorías</a></li>
                     <li><a href="{{ url('/contact') }}" class="hover:underline">Contacto</a></li>
@@ -55,16 +48,17 @@
             </div>
 
             <!-- Redes sociales -->
-            <div>
+            <div class="flex-1">
                 <h3 class="text-lg font-semibold mb-2">Redes Sociales</h3>
-                <ul class="flex space-x-4">
+                <ul class="space-y-1">
                     <li><a href="#" class="hover:underline">Facebook</a></li>
                     <li><a href="#" class="hover:underline">Twitter</a></li>
                     <li><a href="#" class="hover:underline">Instagram</a></li>
                 </ul>
             </div>
         </div>
-        <div class="text-center py-3 text-sm">
+
+        <div class="text-center py-3 text-sm bg-gray-100">
             &copy; {{ date('Y') }} Mi Blog. Todos los derechos reservados.
         </div>
     </footer>

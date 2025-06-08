@@ -1,22 +1,22 @@
 <x-guest-layout>
-    <div class="w-auto ml-auto mr-auto flex justify-center bg-gray-200 rounded-lg shadow-md">
+    <div class="h-auto w-6/12 ml-auto mr-auto p-8 bg-white shadow-lg sm:rounded-lg border">
         <!-- Session Status -->
         <x-auth-session-status class="mb-4" :status="session('status')" />
 
-        <form method="POST" action="{{ route('login') }}" class="p-8">
+        <form method="POST" action="{{ route('login') }}">
             @csrf
 
             <!-- Email Address -->
             <div>
                 <x-input-label for="email" :value="__('Email')" />
-                <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
-                <x-input-error :messages="$errors->get('email')" class="mt-1" />
+                <x-text-input id="email" class="mt-1 w-full border border-gray-300" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
+                <x-input-error :messages="$errors->get('email')" class="mt-1" />              
             </div>
 
             <!-- Password -->
             <div class="mt-4">
                 <x-input-label for="password" :value="__('Password')" />
-                <x-text-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="current-password" />
+                <x-text-input id="password" class="mt-1 w-full border border-gray-300" type="password" name="password" required autocomplete="current-password" />
                 <x-input-error :messages="$errors->get('password')" class="mt-2" />
             </div>
 
@@ -40,9 +40,9 @@
                     {{ __('Iniciar Sesion') }}
                 </x-primary-button>
 
-                <button class="ms-3 inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 focus:bg-gray-700 active:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150'">
+                {{-- <button class="ms-3 inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 focus:bg-gray-700 active:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150'">
                     <a href="{{ route('register') }}">{{ __('Registrarse') }}</a>
-                </button>
+                </button> --}}
             </div>
         </form>
     </div>
