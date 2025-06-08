@@ -18,9 +18,7 @@
 
         <div class="mb-4">
             <label for="description" class="block font-medium">Descripción:</label>
-            <textarea id="description" name="description" class="border rounded w-full p-2" required>
-                {{ $post->content }}
-            </textarea>
+            <textarea id="description" name="description" class="border rounded w-full p-2" required>{{$post->content}}</textarea>
         </div>
 
         <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded">Actualizar</button>

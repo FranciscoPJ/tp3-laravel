@@ -14,11 +14,14 @@
         </div>
 
         <div class="flex justify-center gap-4">
-            <a href="{{ route('posts.edit', $post->id) }}"
-                class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition">
-                Editar
-            </a>
-
+            @auth
+                @if ($isOwner)
+                    <a href="{{ route('posts.edit', $post->id) }}"
+                        class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition">
+                        Editar
+                    </a>
+                @endif
+            @endauth
 
             <a href="{{ route('category.show', $post->id_category) }}"
                 class="bg-gray-300 text-gray-800 px-4 py-2 rounded hover:bg-gray-400 transition">
@@ -52,6 +55,6 @@
                 </button>
             </form>
         </div>
-        
+
     </div>
     </x-guets-layout>

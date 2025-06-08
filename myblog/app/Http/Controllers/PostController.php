@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Post;
-
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PostController extends Controller
 {
@@ -13,9 +13,9 @@ class PostController extends Controller
     public function show($id)
     {
         $post = Post::findOrFail($id); // Si no lo encuentra, lanza un 404
-        return view('posts.show', compact('post'));
-    }
-
+        $isOwner = Auth::id() === $post->id_user;
+        return view('posts.show', compact('post', 'isOwner'));
+    }   
 
     public function create($categoryId)
     {

@@ -12,7 +12,7 @@
 
             <!-- Navigation Links -->
             <div class="flex-grow flex justify-center space-x-4">
-                <div class="sm:ml-2 md:ml-10 xl:ml-12 2xl:ml-14">
+                <div class="sm:ml-2 md:ml-14 xl:ml-16 2xl:ml-18">
                     <x-nav-link :href="route('home.index')" :active="request()->routeIs('home')">
                         {{ __('Inicio') }}
                     </x-nav-link>
