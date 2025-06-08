@@ -52,4 +52,11 @@ class User extends Authenticatable
         // un usuario puede tener muchos posts, así que desde el modelo User se debe usar hasMany
         return $this->hasMany(Post::class);
     }
+
+    public function comments()
+    {
+        // un usuario puede tener muchos comentarios
+        return $this->hasMany(Comments::class, 'id_user');
+    }
+    
 }
