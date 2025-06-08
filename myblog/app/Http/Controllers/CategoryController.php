@@ -16,17 +16,25 @@ class CategoryController extends Controller
         return view('category.index', compact('categories'));
     }
 
-    public function show($id)
+    public function show($id, Request $request)
     {
-        $category = Category::with('posts')->findOrFail($id);
-        return view('category.show', compact('category'));
-    }
+        $category = Category::findOrFail($id);
+        $query = $request->input('search');
 
+        $posts = $category->posts()
+            ->when($query, function ($queryBuilder, $search) {
+                return $queryBuilder->where('title', 'like', '%' . $search . '%')
+                    ->orWhere('content', 'like', '%' . $search . '%');
+            })
+            ->latest()
+            ->paginate(10); // Paginación de 10 posts por página
+
+        return view('category.show', compact('category', 'posts', 'query'));
+    }
 
     public function create()
     {
 
         return view('category.create');
     }
-    
 }
