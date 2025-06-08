@@ -1,4 +1,4 @@
-<x-guest-layout>
+<x-app-layoutt>
     <h1 class="text-xl font-bold mb-4">Editar Post</h1>
 
     <form action="{{ route('posts.update', $post->id) }}" method="POST" enctype="multipart/form-data">
@@ -23,4 +23,4 @@
 
         <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded">Actualizar</button>
     </form>
-</x-guest-layout>
+</x-app-layoutt>

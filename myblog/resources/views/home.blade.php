@@ -1,5 +1,4 @@
 <x-guest-layout>
-
     <div class="grid sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 w-full h-fit p-2 gap-1 overflow-hidden">
 
         {{-- Lateral izquierda (slider) --}}

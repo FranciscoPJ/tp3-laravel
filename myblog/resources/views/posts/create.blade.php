@@ -1,4 +1,4 @@
-<x-guest-layout>
+<x-app-layout>
     <h1 class="text-xl font-bold mb-4">Crear nuevo Post</h1>
 
     <form action="{{ route('posts.store') }}" method="POST" enctype="multipart/form-data">
@@ -24,4 +24,4 @@
 
         <button type="submit" class="bg-green-600 text-white px-4 py-2 rounded">Guardar</button>
     </form>
-</x-guest-layout>
+</x-app-layout>

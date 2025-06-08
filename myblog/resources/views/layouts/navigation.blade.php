@@ -4,11 +4,26 @@
 
         <div class="flex justify-between  items-center h-16">
             <!-- Logo -->
-            <div class="shrink-0">
+            {{-- <div class="shrink-0">
                 <a href="{{ route('home.index') }}">
                     <x-application-logo class="block h-9 w-auto fill-current text-gray-800" />
                 </a>
-            </div>
+            </div> --}}
+
+            <a href="{{ route('home.index') }}" class="flex items-center space-x-2">
+                <!-- Ícono de lápiz (opcional) -->
+                <div class="w-6 h-6">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="size-6">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25" />
+                    </svg>
+                </div>
+                <span class="text-2xl font-bold">
+                    <span class="text-indigo-600">Mi</span>
+                    <span class="text-gray-400">Blog</span>
+                </span>
+            </a>
 
             <!-- Navigation Links -->
             <div class="flex-grow flex justify-center space-x-4">
