@@ -56,31 +56,35 @@ class PostController extends Controller
     public function edit($id)
     {
         $post = Post::findOrFail($id); // Si no lo encuentra, lanza un 404
+        $categories = Category::all(); // Pasa las categorías
         
         //  Si el usuario no es el dueño, abortar con error 403 (Prohibido)
         if (auth()->id() !== $post->id_user) {
             abort(403, 'No tenés permiso para editar este post.');
         }
 
-        return view('posts.edit', compact('post'));
+        return view('posts.edit', compact('post', 'categories'));
     }
 
     public function update(Request $request, $id)
     {
         $request->validate([
             'title' => 'required|string|max:255',
-            'description' => 'required|string',
-            'poster' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
+            'poster' => 'required|string',
+            'content' => 'required|string',            
+            'id_category' => 'required|exists:categories,id',
         ]);
 
         $post = Post::findOrFail($id);
         $post->title = $request->title;
-        $post->content = $request->description;
+        $post->poster = $request->poster;
+        $post->habilitated = $request->has('habilitated');
+        $post->content = $request->content;
 
-        if ($request->hasFile('poster')) {
-            $imagePath = $request->file('poster')->store('posters', 'public');
-            $post->poster = $imagePath;
-        }
+        // if ($request->hasFile('poster')) {
+        //     $imagePath = $request->file('poster')->store('posters', 'public');
+        //     $post->poster = $imagePath;
+        // }
 
         $post->save();
 
