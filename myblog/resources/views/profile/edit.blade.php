@@ -1,9 +1,8 @@
 <x-app-layout>
-    <div class="bg-white shadow max-w-7xl mx-auto py-4 px-4 sm:px-6 lg:px-8">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Perfil') }}
-        </h2>
-    </div>
+        {{-- <h2 class="text-6xl text-pink-800">
+            Perfil
+        </h2> --}}
+
 
     <div class="py-6">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6">

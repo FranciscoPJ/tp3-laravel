@@ -2,10 +2,11 @@
     <div class="w-full p-2 bg-white shadow-md rounded">
         <h1 class="text-5xl font-bold mb-4 text-start">{{ $post->title }}</h1>
 
-        <div class="mb-4 text-gray-700">    
+        <div class="mb-4 text-gray-700">
             @if ($post->poster)
                 <div class="flex justify-center mb-4">
-                    <img src="{{ $post->poster }}" alt="Imagen del post" class="w-full h-[400px] object-cover rounded shadow-md">
+                    <img src="{{ $post->poster }}" alt="Imagen del post"
+                        class="w-full h-[400px] object-cover rounded shadow-md">
                 </div>
             @endif
 
@@ -48,10 +49,14 @@
 
             <form method="POST" action="{{ route('comments.store', $post->id) }}" class="mt-6">
                 @csrf
-                <textarea name="content" class="w-full border rounded p-2 mb-2" rows="3" placeholder="Escribí tu comentario..."></textarea>
-                <button type="submit" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">
-                    Enviar Comentario
-                </button>
+                
+                @auth
+                    <textarea name="content" class="w-full border rounded p-2 mb-2" rows="3" placeholder="Escribí tu comentario..."></textarea>
+
+                    <button type="submit" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">
+                        Enviar Comentario
+                    </button>
+                @endauth
             </form>
         </div>
 
