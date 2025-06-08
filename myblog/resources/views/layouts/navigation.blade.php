@@ -1,8 +1,8 @@
-<nav x-data="{ open: false }" class="bg-gray-100 border-b border-gray-100 text-grey">
+<nav x-data="{ open: false }" class="bg-gray-100 border-b border-gray-100 text-black h-[100px]">
     <!-- Primary Navigation Menu -->
-    <div class="max-w-7xl mx-auto px-2 sm:px-4 lg:px6">
+    <div class="max-w-8xl mx-auto px-2 sm:px-4 lg:px-6">
 
-        <div class="flex justify-between  items-center h-16">
+        <div class="flex justify-between items-center">
             <!-- Logo -->            
             <a href="{{ route('home.index') }}" class="flex items-center space-x-2">               
                 <div class="w-6 h-6">
@@ -20,7 +20,7 @@
 
             <!-- Navigation Links -->
             <div class="flex-grow flex justify-center space-x-4">
-                <div class="sm:ml-2 md:ml-14 xl:ml-16 2xl:ml-18">
+                <div class="ml-auto mr-auto">
                     <x-nav-link :href="route('home.index')" :active="request()->routeIs('home')">
                         {{ __('Inicio') }}
                     </x-nav-link>

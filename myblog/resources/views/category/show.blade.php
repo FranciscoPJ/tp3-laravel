@@ -31,6 +31,7 @@
             <div class="grid gap-6 mb-8">
                 @foreach ($posts as $post)
                     <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition text-left">
+                        {{-- <span><img src="{{ $category->image }}" alt="{{ $post->title }}" class="w-auto"></span> --}}
                         <h3 class="text-xl font-bold text-blue-800 mb-2">{{ $post->title }}</h3>
                         <p class="text-gray-700 mb-4">{{ Str::limit($post->content, 150) }}</p>
                         <a href="{{ url('/post/show/' . $post->id) }}"
