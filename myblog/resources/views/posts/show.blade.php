@@ -26,7 +26,7 @@
                 </div>
             @endif
 
-            <p class="mb-4 text-center">{{ $post->content }}</p>
+            <p class="mb-4 text-justify">{{ $post->content }}</p>
         </div>
 
         <div class="flex justify-center gap-4">
