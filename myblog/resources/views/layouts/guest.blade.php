@@ -19,7 +19,7 @@
         @include('layouts.navigation')
     </header>
 
-    <main class="flex-grow p-4">
+    <main class="flex-grow p-2">
         {{ $slot }}
     </main>
 

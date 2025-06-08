@@ -1,16 +1,15 @@
 <x-guest-layout>
-    <div class="max-w-xl mx-auto mt-10 p-6 bg-white shadow-md rounded">
-        <h1 class="text-2xl font-bold mb-4 text-center">{{ $post->title }}</h1>
+    <div class="w-full p-2 bg-white shadow-md rounded">
+        <h1 class="text-5xl font-bold mb-4 text-start">{{ $post->title }}</h1>
 
-        <div class="mb-4 text-gray-700">
-            <p class="mb-4 text-center">{{ $post->content }}</p>
-
+        <div class="mb-4 text-gray-700">    
             @if ($post->poster)
                 <div class="flex justify-center mb-4">
-                    <img src="{{ $post->poster }}" alt="Imagen del post" class="w-64 h-auto rounded shadow-md">
-
+                    <img src="{{ $post->poster }}" alt="Imagen del post" class="w-full h-[400px] object-cover rounded shadow-md">
                 </div>
             @endif
+
+            <p class="mb-4 text-center">{{ $post->content }}</p>
         </div>
 
         <div class="flex justify-center gap-4">
