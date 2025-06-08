@@ -10,7 +10,9 @@
                     <img src="{{ $post->poster }}" alt="home" class="object-cover w-full h-full rounded-sm ">
 
                     <div class="absolute bottom-0 left-0 bg-black bg-opacity-70 text-white w-full p-2 text-center">
-                        {{ $post->title }}
+                        <a href="{{ url('/post/show/' . $post->id) }}">
+                            {{ $post->title }}
+                        </a>
                     </div>
                 </div>
             @endforeach
@@ -26,7 +28,9 @@
 
                     <div
                         class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-70 text-white px-2 py-1 text-sm text-center">
-                        {{ $post->title }}
+                        <a href="{{ url('/post/show/' . $post->id) }}">
+                            {{ $post->title }}
+                        </a>
                     </div>
                 </div>
             @endforeach

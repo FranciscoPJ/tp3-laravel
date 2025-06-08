@@ -34,7 +34,8 @@
                         <h3 class="text-xl font-bold text-blue-800 mb-2">{{ $post->title }}</h3>
                         <p class="text-gray-700 mb-4">{{ Str::limit($post->content, 150) }}</p>
                         <a href="{{ url('/post/show/' . $post->id) }}"
-                            class="text-blue-600 hover:underline font-semibold">Ver más</a>
+                            class="text-blue-600 hover:underline font-semibold">Ver más
+                        </a>
                     </div>
                 @endforeach
             </div>
