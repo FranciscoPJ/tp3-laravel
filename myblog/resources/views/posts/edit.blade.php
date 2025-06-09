@@ -1,4 +1,4 @@
-<x-app-layout>
+<x-app-layout title="Editar Post">
     <h1 class="text-xl font-bold mb-4">Editar Post</h1>
 
     <form action="{{ route('posts.update', $post->id) }}" method="POST" enctype="multipart/form-data">

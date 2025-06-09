@@ -1,9 +1,14 @@
+@props(['title' => 'MyBlog'])
+
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="{{ asset('favicon.svg') }}" type="image/svg+xml" />
+    <title>{{ $title }}</title>
+
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <!-- Fonts -->
@@ -59,7 +64,8 @@
         </div>
 
         <div class="text-center py-3 text-sm bg-gray-100">
-            &copy; {{ date('Y') }} My Blog. Todos los derechos reservados.
+            &copy; {{ date('Y') }} <span class="text-indigo-600 font-semibold">MyBlog</span>. Todos los derechos
+            reservados.
         </div>
     </footer>
 </body>

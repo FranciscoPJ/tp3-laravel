@@ -1,11 +1,14 @@
-<x-guest-layout>
+<x-guest-layout title="Listado de {{ $category->name }}">
     <div class="max-w-4xl mx-auto py-8 px-4 text-center">
         <h1 class="text-3xl font-bold mb-6 text-gray-800">Categoría: {{ $category->name }}</h1>
 
-        <a href="{{ route('posts.create', ['category' => $category->id]) }}"
-            class="inline-block mb-6 px-4 py-2 bg-blue-600 text-white font-semibold rounded hover:bg-blue-700 transition">
-            + Crear nuevo post
-        </a>
+        @auth
+            <a href="{{ route('posts.create')}}"
+                class="inline-block mb-6 px-4 py-2 bg-blue-600 text-white font-semibold rounded hover:bg-blue-700 transition">
+                + Crear nuevo post
+            </a>
+        @endauth
+
 
 
         <form method="GET" action="{{ route('category.show', $category->id) }}" class="mb-6">

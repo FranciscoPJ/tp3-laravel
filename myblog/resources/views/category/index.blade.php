@@ -1,4 +1,4 @@
-<x-guest-layout>
+<x-guest-layout title="Listado de Categorias">
     <div class="max-w-4xl mx-auto pt-4">
         <h1 class="text-2xl font-bold text-blue-700 mb-6 text-center">📝 Listado de Categorias</h1>
 

@@ -32,7 +32,6 @@ class PostController extends Controller
 
     public function store(Request $request)
     {
-        // 'poster' => 'required|image|mimes:jpg,jpeg,png|max:2048', // validación de imagen  
         $request->validate([
             'title' => 'required|string|max:255',
             'poster' => 'required|string',
@@ -40,16 +39,12 @@ class PostController extends Controller
             'id_category' => 'required|exists:categories,id',
         ]);
 
-        // Guardar imagen
-        //$imagePath = $request->file('poster')->store('posters', 'public');
-
         // Crear el post
         $post = new Post();
         $post->title = $request->title;
         $post->poster = $request->poster;
         $post->habilitated = $request->has('habilitated') ? true : false;
         $post->content = $request->content;
-        //$post->poster = $imagePath;
 
         // Claves foráneas
         $post->id_category = $request->id_category; // Id de categoria  
@@ -64,14 +59,9 @@ class PostController extends Controller
         $post = Post::findOrFail($id); // Si no lo encuentra, lanza un 404
         $categories = Category::all(); // Pasa las categorías
 
-        //  Si el usuario no es el dueño, abortar con error 403 (Prohibido)
-        /*if (!auth()->check()) {
-            return redirect()->route('login');
-        }*/
         if (auth()->id() !== $post->id_user) {
             abort(403, 'No tenés permiso para editar este post.');
         }
-
 
         return view('posts.edit', compact('post', 'categories'));
     }
@@ -90,11 +80,6 @@ class PostController extends Controller
         $post->poster = $request->poster;
         $post->habilitated = $request->has('habilitated');
         $post->content = $request->content;
-
-        // if ($request->hasFile('poster')) {
-        //     $imagePath = $request->file('poster')->store('posters', 'public');
-        //     $post->poster = $imagePath;
-        // }
 
         $post->save();
 

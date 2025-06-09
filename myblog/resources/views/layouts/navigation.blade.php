@@ -14,8 +14,7 @@
                     </svg>
                 </div>
                 <span class="text-2xl font-bold">
-                    <span class="text-indigo-600">My</span>
-                    <span class="text-gray-400">Blog</span>
+                    <span class="text-indigo-600">My</span><span class="text-indigo-600">Blog</span>
                 </span>
             </a>
 

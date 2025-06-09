@@ -1,6 +1,6 @@
-<x-app-layout>
+<x-app-layout title="Añadir Blog">
 
-    <h1 class="text-xl font-bold mb-4">Crear Nuevo Blog</h1>
+    <h1 class="text-xl font-bold mb-4">Añadir un Nuevo Blog</h1>
 
     <form action="{{ route('posts.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
@@ -27,12 +27,6 @@
                 </svg>
             </div>
         </div>
-
-        {{-- <div class="mb-4">
-            <label for="poster" class="block font-medium">Poster:</label>
-            <input type="file" id="poster" name="poster" class="border rounded w-full p-2" accept="image/*"
-                required>
-        </div> --}}
 
         <div class="mb-4 mt-4">
             <label class="text-start w-full ml-2">Poster:</label>

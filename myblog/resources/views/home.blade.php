@@ -1,4 +1,4 @@
-<x-guest-layout>
+<x-guest-layout title="MyBlog">    
     <div class="w-full mt-10 flex flex-col items-center text-center px-4">
         <h2 class="text-5xl font-extrabold text-gray-800 mb-4">
             ¡Bienvenidos a <span class="text-indigo-600">MyBlog</span>!
