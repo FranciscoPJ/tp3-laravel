@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Auth;
-use App\Models\Comments;
+use App\Models\Comment;
 use Illuminate\Http\Request;
 
-class CommentsController extends Controller
+class CommentController extends Controller
 {
     public function store(Request $request, $postId)
     {
@@ -14,7 +14,7 @@ class CommentsController extends Controller
             'content' => 'required|string|max:1000',
         ]);
 
-        Comments::create([
+        Comment::create([
             'content' => $request->content,
             'id_post' => $postId,
             'id_user' => Auth::id(),

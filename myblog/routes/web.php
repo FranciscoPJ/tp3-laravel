@@ -5,7 +5,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostController;
-use App\Http\Controllers\CommentsController;
+use App\Http\Controllers\CommentController;
 use Illuminate\Support\Facades\Route;
 
 //HOME
@@ -24,10 +24,6 @@ Route::middleware('auth', 'verified')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
-    //Category
-    Route::get('/category/create', [CategoryController::class, 'create'])->name('category.create');
-    Route::post('/category/store', [CategoryController::class, 'store'])->name('category.store');
-
     //POST
     Route::get('/post/create', [PostController::class, 'create'])->name('posts.create');
     Route::get('/post/edit/{id}', [PostController::class, 'edit'])->name('posts.edit');
@@ -35,7 +31,7 @@ Route::middleware('auth', 'verified')->group(function () {
     Route::post('/post/store', [PostController::class, 'store'])->name('posts.store');
 
     //COMENTARIOS
-    Route::post('/posts/{post}/comments', [CommentsController::class, 'store'])
+    Route::post('/posts/{post}/comments', [CommentController::class, 'store'])
         ->middleware('auth')
         ->name('comments.store');
 });
