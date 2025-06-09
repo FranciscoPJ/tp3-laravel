@@ -1,10 +1,11 @@
-<nav x-data="{ open: false }" class="bg-white/80 backdrop-blur border-b border-gray-200 text-black h-[90px] fixed top-0 w-full z-50 shadow">
+<nav x-data="{ open: false }"
+    class="bg-white/80 backdrop-blur border-b border-gray-200 text-black h-[90px] fixed top-0 w-full z-50 shadow">
     <!-- Primary Navigation Menu -->
     <div class="max-w-8xl mx-auto px-2 sm:px-4 lg:px-6 h-full">
 
         <div class="flex justify-between items-center h-full">
-            <!-- Logo -->            
-            <a href="{{ route('home.index') }}" class="flex items-center space-x-2">               
+            <!-- Logo -->
+            <a href="{{ route('home.index') }}" class="flex items-center space-x-2">
                 <div class="w-6 h-6">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                         stroke="currentColor" class="size-6">
@@ -13,7 +14,7 @@
                     </svg>
                 </div>
                 <span class="text-2xl font-bold">
-                    <span class="text-indigo-600">Mi</span>
+                    <span class="text-indigo-600">My</span>
                     <span class="text-gray-400">Blog</span>
                 </span>
             </a>

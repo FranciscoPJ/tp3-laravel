@@ -1,4 +1,21 @@
 <x-guest-layout>
+    <div class="w-full mt-10 flex flex-col items-center text-center px-4">
+        <h2 class="text-5xl font-extrabold text-gray-800 mb-4">
+            ¡Bienvenidos a <span class="text-indigo-600">MyBlog</span>!
+        </h2>
+
+        <p class="text-lg text-gray-600 max-w-2xl">
+            Un espacio donde compartimos ideas, aprendizajes y experiencias sobre tecnología, desarrollo web, y mucho
+            más.
+            Descubre artículos interesantes, mantente al día con las últimas tendencias y únete a nuestra comunidad!
+        </p>
+    </div>
+
+    <div class="w-full mt-10 flex flex-col items-center  px-4">
+        <h2 class="text-3xl md:text-4xl  text-gray-800 mb-2">
+            Revisa los últimos posts
+        </h2>
+    </div>
     <div class="grid sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 w-full h-fit p-2 gap-1 overflow-hidden">
 
         {{-- Lateral izquierda (slider) --}}
@@ -26,29 +43,14 @@
 
                     <img class="w-full h-full object-cover" src="{{ $post->poster }}" alt="home">
 
-                    <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-70 text-white px-2 py-1 text-sm text-center">
+                    <div
+                        class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-70 text-white px-2 py-1 text-sm text-center">
                         <a href="{{ url('/post/show/' . $post->id) }}" class="w-full">
                             {{ $post->title }}
                         </a>
                     </div>
                 </div>
             @endforeach
-        </div>
-
-    </div>
-
-
-    <div class="w-full mt-2 flex flex-col items-start">
-
-        <h2 class="ml-2 text-5xl">
-            Explora Nuestros Blogs
-        </h2>
-
-        <div class="mt-2 ml-3 text-md">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit, nobis harum eum esse doloribus iure provident
-            architecto? Corporis harum eligendi, magni corrupti aperiam neque perspiciatis, iste facere molestiae
-            obcaecati
-            vero.
         </div>
 
     </div>

@@ -39,7 +39,7 @@
                 <ul class="space-y-1">
                     <li><a href="{{ route('home.index') }}" class="hover:underline">Inicio</a></li>
                     <li><a href="{{ route('category.index') }}" class="hover:underline">Categorías</a></li>
-                    <li><a href="{{ url('/contact') }}" class="hover:underline">Contacto</a></li>
+                    <li><a href="{{ route('home.index') }}" class="hover:underline">Contacto</a></li>
                 </ul>
             </div>
 
@@ -55,7 +55,7 @@
         </div>
 
         <div class="text-center py-3 text-sm bg-gray-100">
-            &copy; {{ date('Y') }} Mi Blog. Todos los derechos reservados.
+            &copy; {{ date('Y') }} My Blog. Todos los derechos reservados.
         </div>
     </footer>
 </body>
