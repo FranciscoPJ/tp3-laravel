@@ -6,6 +6,7 @@ use App\Models\Category;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+
 class PostController extends Controller
 {
 
@@ -14,10 +15,15 @@ class PostController extends Controller
         $post = Post::findOrFail($id); // Si no lo encuentra, lanza un 404
         $isOwner = Auth::id() === $post->id_user;
         return view('posts.show', compact('post', 'isOwner'));
-    }   
+    }
 
     public function create()
     {
+        //  Si el usuario no es el dueño, abortar con error 403 (Prohibido)
+        if (auth()->id() !== $post->id_user) {
+            abort(403, 'No tenés permiso para editar este post.');
+        }
+
         $categories = Category::all();
         return view('posts.create', compact('categories'));
     }
@@ -30,7 +36,7 @@ class PostController extends Controller
         $request->validate([
             'title' => 'required|string|max:255',
             'poster' => 'required|string',
-            'content' => 'required|string',            
+            'content' => 'required|string',
             'id_category' => 'required|exists:categories,id',
         ]);
 
@@ -42,7 +48,7 @@ class PostController extends Controller
         $post->title = $request->title;
         $post->poster = $request->poster;
         $post->habilitated = $request->has('habilitated') ? true : false;
-        $post->content = $request->content;        
+        $post->content = $request->content;
         //$post->poster = $imagePath;
 
         // Claves foráneas
@@ -57,11 +63,15 @@ class PostController extends Controller
     {
         $post = Post::findOrFail($id); // Si no lo encuentra, lanza un 404
         $categories = Category::all(); // Pasa las categorías
-        
+
         //  Si el usuario no es el dueño, abortar con error 403 (Prohibido)
+        /*if (!auth()->check()) {
+            return redirect()->route('login');
+        }*/
         if (auth()->id() !== $post->id_user) {
             abort(403, 'No tenés permiso para editar este post.');
         }
+
 
         return view('posts.edit', compact('post', 'categories'));
     }
@@ -71,7 +81,7 @@ class PostController extends Controller
         $request->validate([
             'title' => 'required|string|max:255',
             'poster' => 'required|string',
-            'content' => 'required|string',            
+            'content' => 'required|string',
             'id_category' => 'required|exists:categories,id',
         ]);
 
