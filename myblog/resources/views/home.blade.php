@@ -1,4 +1,4 @@
-<x-guest-layout title="MyBlog">    
+<x-guest-layout title="MyBlog">
     <div class="w-full mt-10 flex flex-col items-center text-center px-4">
         <h2 class="text-5xl font-extrabold text-gray-800 mb-4">
             ¡Bienvenidos a <span class="text-indigo-600">MyBlog</span>!
@@ -24,16 +24,19 @@
             @foreach ($posts->slice(-3)->values() as $index => $post)
                 <div
                     class="slide absolute w-full h-full flex justify-center items-center transition-opacity duration-1000 {{ $index === 0 ? 'opacity-100' : 'opacity-0' }} rounded-sm">
-                    <img src="{{ $post->poster }}" alt="home" class="object-cover w-full h-full rounded-sm ">
-
-                    <div class="absolute bottom-0 left-0 bg-black bg-opacity-70 text-white w-full p-2 text-center">
-                        <a href="{{ url('/post/show/' . $post->id) }}" class="w-full">
-                            {{ $post->title }}
-                        </a>
-                    </div>
+                    <img src="{{ $post->poster }}" alt="home" class="object-cover w-full h-full rounded-sm">
+                    <div class="hidden post-link" data-link="{{ url('/post/show/' . $post->id) }}" data-title="{{ $post->title }}"></div>
                 </div>
             @endforeach
+
+            <!-- Botón absoluto -->
+            <button id="goToPost"
+                class="absolute bottom-4 right-4 bg-black bg-opacity-90 hover:bg-gray-700 text-white px-4 py-2 rounded shadow-md z-10">
+                {{ $post->title }}
+            </button>
         </div>
+
+
 
         {{-- Lateral derecha --}}
         <div class="grid gap-1 sm:col-span-1 md:col-span-1 lg:col-span-1 w-full h-fit">
@@ -44,7 +47,7 @@
                     <img class="w-full h-full object-cover" src="{{ $post->poster }}" alt="home">
 
                     <div
-                        class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-70 text-white px-2 py-1 text-sm text-center">
+                        class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-70  hover:bg-gray-700 text-white px-2 py-1 text-sm text-center">
                         <a href="{{ url('/post/show/' . $post->id) }}" class="w-full">
                             {{ $post->title }}
                         </a>
@@ -56,32 +59,52 @@
     </div>
 
     <script>
-        const slides = document.querySelectorAll("#slider .slide");
-        let current = 0;
-        const displayTime = 3000; // milisegundos (3 segundos)
+    const slides = document.querySelectorAll("#slider .slide");
+    let current = 0;
+    const displayTime = 3000;
+    const goToPostBtn = document.getElementById("goToPost");
 
-        function showSlide(index) {
-            slides.forEach((slide, i) => {
-                slide.classList.remove("opacity-100");
-                slide.classList.add("opacity-0");
-                if (i === index) {
-                    slide.classList.remove("opacity-0");
-                    slide.classList.add("opacity-100");
-                }
-            });
+    function showSlide(index) {
+        slides.forEach((slide, i) => {
+            slide.classList.remove("opacity-100");
+            slide.classList.add("opacity-0");
+            if (i === index) {
+                slide.classList.remove("opacity-0");
+                slide.classList.add("opacity-100");
+            }
+        });
+
+        // Actualizar el texto del botón con el título del slide visible
+        const visibleSlide = slides[index];
+        const postLinkDiv = visibleSlide.querySelector(".post-link");
+        if (postLinkDiv) {
+            goToPostBtn.textContent = postLinkDiv.dataset.title;
         }
+    }
 
-        function startSlider() {
-            console.log(slides); // Agregad    
+    function startSlider() {
+        showSlide(current);
+        setInterval(() => {
+            current = (current + 1) % slides.length;
             showSlide(current);
-            setInterval(() => {
-                current = (current + 1) % slides.length;
-                showSlide(current);
-            }, displayTime);
-        }
+        }, displayTime);
+    }
 
-        // Iniciar cuando cargue
-        window.addEventListener("DOMContentLoaded", startSlider);
-    </script>
+    window.addEventListener("DOMContentLoaded", () => {
+        startSlider();
+
+        goToPostBtn.addEventListener("click", () => {
+            const visibleSlide = document.querySelector("#slider .slide.opacity-100");
+            const postLinkDiv = visibleSlide.querySelector(".post-link");
+            const link = postLinkDiv?.dataset.link;
+
+            if (link) {
+                window.location.href = link;
+            }
+        });
+    });
+</script>
+
+
 
 </x-guest-layout>
