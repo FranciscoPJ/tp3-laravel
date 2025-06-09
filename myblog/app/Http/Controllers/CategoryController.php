@@ -30,10 +30,4 @@ class CategoryController extends Controller
 
         return view('category.show', compact('category', 'posts', 'query'));
     }
-
-    public function create()
-    {
-
-        return view('category.create');
-    }
 }
