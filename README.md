@@ -2,7 +2,7 @@
 
 **Nombre del proyecto: MyBlog** <br>
 **Materia: Programacion Web Avanzada** <br>
-**Profesor: Lidia López** <br>
+**Profesora: Lidia López** <br>
 **TP nº 3 Laravel**<br>
 
 ## 👥 Integrantes del grupo
@@ -60,7 +60,7 @@ Siga estos pasos para clonar e instalar correctamente el proyecto en su entorno 
 ``` 
 
 ---
-**1.En la imagen muestra el inicio de la pagina de MyBlog**
+**1. En la imagen muestra el inicio de la pagina de MyBlog**
 
 ![imagen del home](./myblog/public/images/home.png)
 
