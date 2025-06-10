@@ -61,18 +61,24 @@ Siga estos pasos para clonar e instalar correctamente el proyecto en su entorno 
 
 ---
 **1.En la imagen muestra el inicio de la pagina de MyBlog**
+
 ![imagen del home](./myblog/public/images/home.png)
 
 **2. La sección `<header>` contiene una barra de navegación (`<nav>`) que muestra el título del sitio, "MyBlog", y enlaces de navegación como "Inicio", "Categoría", "Iniciar Sesion" y "Registrarse". Estos enlaces que se muestran cuando el usuario no está autenticado.**
 
-![imagen del nav](./myblog/public/images/nav_no_autenticado)
+![imagen del nav no autenticado](./myblog/public/images/nav_no_autenticado.png)
 
 Cuando el usuario ha iniciado sesión, se agrega el enlace de navegación "Añadir Blog" y  "Iniciar Sesion" y "Registrarse" son reemplazado por un **menú de configuración** desplegable en la parte derecha de la barra de navegación. Este menú incluye:
 
 - El nombre del usuario actualmente autenticado.
 - Un enlace al perfil del usuario.
-- Un botón para cerrar sesión, el cual se implementa mediante un formulario `POST` que envía la solicitud a la ruta `logout`, con protección CSRF incluida.
+- Un botón para cerrar sesión.
 
-![imagen del nav](./myblog/public/images/nav_autenticado)
+![imagen del nav autenticado](./myblog/public/images/nav_autenticado.png)
+
+
+**3. La sección `<footer>` Contiene un título y un párrafo descriptivo. Explica que el blog está dedicado a compartir noticias, artículos y opiniones sobre diversos temas. Incluye las secciones: "Acerca de", Enlaces y Redes Sociales:**
+
+![imagen del footer](./myblog/public/images/footer.png)
 
 ---
