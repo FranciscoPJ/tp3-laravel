@@ -77,8 +77,32 @@ Cuando el usuario ha iniciado sesión, se agrega el enlace de navegación "Añad
 ![imagen del nav autenticado](./myblog/public/images/nav_autenticado.png)
 
 
-**3. La sección `<footer>` Contiene un título y un párrafo descriptivo. Explica que el blog está dedicado a compartir noticias, artículos y opiniones sobre diversos temas. Incluye las secciones: "Acerca de", Enlaces y Redes Sociales:**
+**3. La sección `<footer>` Contiene un título y un párrafo descriptivo. Explica que el blog está dedicado a compartir noticias, artículos y opiniones sobre diversos temas. Incluye las secciones: "Acerca de", "Enlaces" y "Redes Sociales":**
 
 ![imagen del footer](./myblog/public/images/footer.png)
+
+**4. En la imagen muestra la vista del listado de categorias, muestra todas las categorias en una columna de "MyBlog":**
+
+![imagen del listado de categorias](./myblog/public/images/listado_de_categorias.png)
+
+**5. En la imagen muestra la vista de un listado de posts de una categoria seleccionada. Tambien se puede filtrar los posts a traves de una buscador:**
+
+![imagen del listado de posts de una categoria](./myblog/public/images/listado_de_posts.png)
+
+**6. En la imagen muestra la vista de un detalle de un post, con su descripcion completa. Tiene botones como "Editar" y "Voler al Listado". Además se publicar comentarios al post:**
+
+![imagen detalle de un post](./myblog/public/images/postDetalle.png)
+
+<br>
+
+![imagen comentar un post](./myblog/public/images/comentarPost.png)
+
+**7. En la imagen muestra la vista de editar un post:**
+
+![imagen editar un post](./myblog/public/images/editarPost.png)
+
+**8. En la imagen muestra la vista de añadir un post:**
+
+![imagen añadir un post](./myblog/public/images/añadirPost.png)
 
 ---
